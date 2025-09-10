@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fanlar</title>
+</head>
+<body>
+<h1>Fanlar</h1>
+<hr>
+<form>
+    <input type="text" name="search" placeholder="nom bo'yicha qidirish .." {% if search %} value="{{search}}" {% endif %}>
+    <button>Search</button>
+</form>
+<ol>
+  {% for fan in fanlar %}
+  <li>
+    <p>
+      <a href="/fan/{{fan.id}}">{{fan.nom}}</a>
+       <a href="/fan/{{fan.id}}/delete/confirm"><button>Delete</button></a>
+    </p>
+  </li>
+
+  {% endfor %}
+</ol>
+</body>
+</html>

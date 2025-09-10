@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>O'qituvchilar</title>
+</head>
+<body>
+<h1>O'qituvchilar</h1>
+<hr>
+<form>
+    <input type="text" name="search" placeholder="ism bo'yicha qidirish .." {% if search %} value="{{search}}" {% endif %}>
+    <button>Search</button>
+</form>
+<ol>
+  {% for teacher in teachers%}
+  <li>
+    <p>
+      <a href="/teacher/{{teacher.id}}">{{teacher.name}}</a>
+       <a href="/teacher/{{teacher.id}}/delete/confirm"><button>Delete</button></a>
+    </p>
+  </li>
+  {% endfor %}
+</ol>
+</body>
+</html>
