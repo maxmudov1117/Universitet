@@ -19,8 +19,26 @@
        <a href="/fan/{{fan.id}}/delete/confirm"><button>Delete</button></a>
     </p>
   </li>
-
   {% endfor %}
 </ol>
+<hr>
+<form method="post">
+    {% csrf_token %}
+    <label for="name">Fan nomi:</label>
+    <input type="text" name="nom" id="name" required>
+    <br><br>
+    <label for="asosiy">Asosiy:</label>
+    <input type="checkbox" name="asosiy" id="asosiy" value="1">
+    <br><br>
+    <label for="major">Yo'nalish:</label>
+    <select name="yonalish_id" id="major">
+        {% for yonalish in yonalishlar %}
+        <option value="{{yonalish.id}}">{{yonalish.nom}}</option>
+        {% endfor %}
+    </select>
+    <br><br>
+    <button>Qo'shish</button>
+</form>
+<hr>
 </body>
 </html>

@@ -21,5 +21,35 @@
   </li>
   {% endfor %}
 </ol>
+<hr>
+<form method="post">
+    {% csrf_token %}
+    <label for="name">Ism:</label>
+    <input type="text" name="name" id="name" required>
+    <br><br>
+    <label for="yosh">Yosh:</label>
+    <input type="number" name="age" id="yosh" required>
+    <br><br>
+    <label for="jins">Jins:</label>
+    <input type="text" name="gender" id="jins" required>
+    <br><br>
+    <label for="degree">Darajasi:</label>
+    <select name="daraja" id="degree">
+        <option value="">Bakalavr</option>
+        <option value="">Magist</option>
+        <option value="">Doktarant</option>
+    </select>
+    <br><br>
+    <label for="fan">Fan:</label>
+    <select name="fan_id" id="fan">
+        {% for fan in fanlar %}
+        <option value="{{fan.id}}">{{fan.nom}}</option>
+        {% endfor %}
+    </select>
+    <br><br>
+    <button>Qo'shish</button>
+
+</form>
+<hr>
 </body>
 </html>

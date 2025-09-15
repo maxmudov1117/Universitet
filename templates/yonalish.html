@@ -13,8 +13,20 @@
       <a href="/yonalish/{{yonalish.id}}/">{{yonalish.nom}}</a>
        <a href="/yonalish/{{yonalish.id}}/delete/confirm/"><button>Delete</button></a>
     </p>
-  </li>
-
+      </li>
   {% endfor %}
+</ol>
+<hr>
+<form method="post">
+    {% csrf_token %}
+    <label for="name">Nomi:</label>
+    <input type="text" name="nom" id="name" required>
+    <br><br>
+    <label for="as">Active</label>
+    <input type="checkbox" name="active" id="as" value="1">
+    <br><br>
+    <button>Qo'shish</button>
+</form>
+<hr>
 </body>
 </html>
